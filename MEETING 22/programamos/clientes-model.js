@@ -10,7 +10,7 @@ const cliente = new schema({
   nombre: String,
   apellido: String,
   email: String,
-  contacto: {contacto}
+  contacto: [contacto]
 })
 
 mongoose.model('cliente', cliente);
