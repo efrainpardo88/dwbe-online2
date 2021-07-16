@@ -22,14 +22,17 @@ const addStudent = async (student) => {
     
   return await sequelize.query(
     'INSERT INTO `estudiante`(`nombre`, `apellido`, `correo`, `ciudad`, `edad`, `fechaNacimiento`, `estadoCivil`) VALUES(?, ?, ?, ?, ?, ?, ?)',
-    { replacements: array_insert, type: sequelize.QueryTypes.SELECT }
+    { 
+      replacements: array_insert, 
+      type: sequelize.QueryTypes.INSERT 
+    }
   )
 }
 
 const updateStudentById = async (id, student) => {
   return await sequelize.query(
-    'UPDATE estudiante SET ciudad = ? WHERE id = ?',
-    { replacements: [student.ciudad, id]}
+    `UPDATE estudiante SET ciudad = '${student.ciudad}' WHERE id = ${id}`,
+    { }
   )
 }
 

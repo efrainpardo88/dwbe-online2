@@ -11,21 +11,21 @@ const catchError = (error, res) => {
   res.status(500).json(error);
 }
 
-router.get('/student', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     res.json(await studentServices.getAllStudents());
   } 
   catch (error) { catchError(error, res); }
 });
 
-router.get('/student/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     res.json(await studentServices.getStudentById(req.params.id));
   } 
   catch (error) { catchError(error, res); }
 });
 
-router.post('/student', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const student = req.body;
     res.json(await studentServices.addStudent(student));
@@ -33,7 +33,7 @@ router.post('/student', async (req, res) => {
   catch (error) { catchError(error, res); }
 });
 
-router.put('/student/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const student = req.body;
     res.json(await studentServices.updateStudentById(req.params.id, student));
@@ -41,7 +41,7 @@ router.put('/student/:id', async (req, res) => {
   catch (error) { catchError(error, res); }
 });
 
-router.delete('/student/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     res.json(await studentServices.deleteStudentById(req.params.id));
   } 
