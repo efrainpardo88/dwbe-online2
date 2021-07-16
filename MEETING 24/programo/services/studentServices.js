@@ -1,14 +1,14 @@
 const sequelize = require('./connect');
 
-const getAllStudents = async () => {
-  return await sequelize.query(
+const getAllStudents = () => {
+  return sequelize.query(
     "SELECT * FROM estudiante", 
     { type: sequelize.QueryTypes.SELECT }
   );
 }
 
-const getStudentById = async (id) => {
-  return await sequelize.query(
+const getStudentById = (id) => {
+  return sequelize.query(
     'SELECT * FROM estudiante WHERE id = ?',
     { 
       replacements: [id], 
@@ -17,10 +17,10 @@ const getStudentById = async (id) => {
   )
 }
 
-const addStudent = async (student) => {
+const addStudent = (student) => {
   let array_insert = ['merengano', 'sultano', 'merengano@acamica.com', 'Rio de la Plata', 21, '20000101', 'soltero'];
     
-  return await sequelize.query(
+  return sequelize.query(
     'INSERT INTO `estudiante`(`nombre`, `apellido`, `correo`, `ciudad`, `edad`, `fechaNacimiento`, `estadoCivil`) VALUES(?, ?, ?, ?, ?, ?, ?)',
     { 
       replacements: array_insert, 
