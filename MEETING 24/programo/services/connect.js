@@ -1,5 +1,8 @@
+// Instancia de dependencias
 const Sequelize = require('sequelize');
-const path = 'mysql://root@localhost:3306/acamica';
+
+// Configuración del Sequalize
+const path = 'mysql://root:Colombia.1@localhost:3306/acamica';
 const sequelize = new Sequelize(path, { operatorsAliases: false });
 
 sequelize.authenticate().then(() => {
