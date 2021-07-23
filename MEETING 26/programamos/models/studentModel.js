@@ -1,5 +1,7 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../services/connect');
+const CityModel = require('./cityModel');
+const MaritalStatusModel = require('./maritalStatusModel');
 
 class StudenModel extends Model { }
 
@@ -40,9 +42,11 @@ StudenModel.init({
   }
 }, {
   sequelize,
-  modelName: 'student',
   tableName: 'estudiante',
   timestamps: false
-})
+});
+
+StudenModel.belongsTo(CityModel, {foreignKey: 'idCiudad'});
+StudenModel.belongsTo(MaritalStatusModel, {foreignKey: 'idEstadoCivil'});
 
 module.exports = StudenModel;

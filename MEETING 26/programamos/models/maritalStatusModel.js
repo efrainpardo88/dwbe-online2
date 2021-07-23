@@ -16,5 +16,9 @@ MaritalStatusModel.init({
   }
 }, {
   sequelize,
-  modelName: 'estadoCivil'
-})
+  modelName: 'estadoCivil',
+  tableName: 'estadoCivil',
+  timestamps: false
+});
+
+module.exports = MaritalStatusModel;

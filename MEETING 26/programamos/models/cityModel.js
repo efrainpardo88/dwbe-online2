@@ -16,5 +16,9 @@ CityModel.init({
   }
 }, {
   sequelize,
-  modelName: 'ciudad'
+  modelName: 'ciudad',
+  tableName: 'ciudad',
+  timestamps: false
 })
+
+module.exports = CityModel;
